@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: incident-mcp-server
+
+  ai:
+    mcp:
+      server:
+        enabled: true
+        protocol: STREAMABLE      
+        name: incident-tools       
+        version: 0.0.1
+        type: SYNC
+        streamable-http:
+          mcp-endpoint: /mcp       
+
+logging:
+  level:
+    root: INFO
+    org.springframework.ai.mcp: DEBUG
+    org.springframework.web.reactive.function.client.ExchangeFunctions: DEBUG
+    reactor.netty.http.client: INFO
+
+server:
+  port: 8081
+
+incident:
+  jira:
+    base-url: "${baseUrl}"      
+    project-key: "${projectKey}"                           
+    user-email: "${userEmail}"                      
+    api-token: "${token}"
